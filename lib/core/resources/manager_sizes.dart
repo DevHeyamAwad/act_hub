@@ -137,6 +137,17 @@ class ManagerSize {
   static double s100 = SizeUtil.setRadius(100.0);
 }
 
+class ManagerIconSize {
+  static double s2 = 2;
+  static double s4 = 4;
+  static double s6 = 6;
+  static double s8 = 8;
+  static double s10 = 10;
+  static double s12 = 12;
+}
+
 class ManagerOpacity {
-  static double Op_0_5 = 0.5;
+  static double Op_0_2 = 0.2;
+  static double Op_0_4 = 0.4;
+  static double Op_0_6 = 0.6;
 }
