@@ -1,3 +1,3 @@
-class Constants {
-  static const kLinkPro = '';
+class Constans {
+  static const String klinkPro = '';
 }
