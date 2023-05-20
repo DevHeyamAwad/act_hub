@@ -1,3 +1,4 @@
+import 'package:act_hub/core/resources/manager_fonts.dart';
 import 'package:flutter/material.dart';
 
 TextStyle _textStyle(
@@ -18,23 +19,39 @@ TextStyle _textStyle(
 TextStyle getMediumStyle(
     {required String fontFamily,
     required Color color,
-    required TextDecoration decoration,
-    required FontStyle fontStyle}) {
+    TextDecoration decoration = TextDecoration.none,
+    required double fontSize}) {
   return TextStyle(
-      fontFamily: fontFamily,
+      fontFamily: ManagerFontFamily.fontFamily,
+      fontWeight: ManagerFontWeight.medium,
       color: color,
       decoration: decoration,
-      fontStyle: fontStyle);
+      fontSize: fontSize);
 }
 
 TextStyle getRegularStyle(
     {required String fontFamily,
     required Color color,
-    required TextDecoration decoration,
-    required FontStyle fontStyle}) {
+    TextDecoration decoration = TextDecoration.none,
+    required double fontSize}) {
   return TextStyle(
-      fontFamily: fontFamily,
+      fontFamily: ManagerFontFamily.fontFamily,
+      fontWeight: ManagerFontWeight.regular,
       color: color,
       decoration: decoration,
-      fontStyle: fontStyle);
+      fontSize: fontSize);
+}
+
+TextStyle getBoldTextStyle({
+  required double fontSize,
+  required Color color,
+  TextDecoration decoration = TextDecoration.none,
+}) {
+  return _textStyle(
+    fontSize: fontSize,
+    fontFamily: ManagerFontFamily.fontFamily,
+    fontWeight: ManagerFontWeight.bold,
+    color: color,
+    decoration: decoration,
+  );
 }
