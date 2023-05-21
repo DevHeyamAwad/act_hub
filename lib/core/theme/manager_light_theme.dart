@@ -1,6 +1,7 @@
 import 'package:act_hub/core/resources/manager_colors.dart';
 import 'package:act_hub/core/resources/manager_fonts.dart';
 import 'package:act_hub/core/resources/manager_styles.dart';
+import 'package:act_hub/core/resources/manager_text_theme_light.dart';
 import 'package:flutter/material.dart';
 
 ThemeData managerLightThemeData() {
@@ -21,5 +22,6 @@ ThemeData managerLightThemeData() {
       buttonTheme: const ButtonThemeData(
           shape: RoundedRectangleBorder(),
           disabledColor: ManagerColors.greyLight,
-          buttonColor: ManagerColors.buttonColorLight));
+          buttonColor: ManagerColors.buttonColorLight),
+      textTheme: ManagerTextThemeLight());
 }
