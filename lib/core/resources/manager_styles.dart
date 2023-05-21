@@ -17,12 +17,12 @@ TextStyle _textStyle(
 }
 
 TextStyle getMediumStyle(
-    {required String fontFamily,
+    {String fontFamily = ManagerFontFamily.fontFamily,
     required Color color,
     TextDecoration decoration = TextDecoration.none,
     required double fontSize}) {
   return TextStyle(
-      fontFamily: ManagerFontFamily.fontFamily,
+      fontFamily: fontFamily,
       fontWeight: ManagerFontWeight.medium,
       color: color,
       decoration: decoration,

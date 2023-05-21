@@ -6,5 +6,11 @@ final instance = GetIt.instance;
 initSplash() {
   Get.put<SplashController>(SplashController());
 }
-//
-//
+
+finishSplash() {
+  Get.delete<SplashController>();
+}
+
+initOutBoarding() {
+  finishSplash();
+}

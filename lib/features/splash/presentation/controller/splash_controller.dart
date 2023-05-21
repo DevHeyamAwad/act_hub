@@ -1,3 +1,4 @@
+import 'package:act_hub/config/constants.dart';
 import 'package:act_hub/routes/routes.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -8,7 +9,7 @@ class SplashController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: Constans.splashDuration), () {
       Get.offAllNamed(Routes.outBoardingView);
     });
   }
