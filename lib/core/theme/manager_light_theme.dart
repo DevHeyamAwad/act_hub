@@ -3,5 +3,5 @@ import 'package:flutter/material.dart';
 
 ThemeData managerDarkThemeData() {
   return ThemeData.light()
-      .copyWith(useMaterial3: true, primaryColor: ManagerColors.primaryColor);
+      .copyWith(useMaterial3: true, primaryColor: ManagerColors.primaryColor,);
 }
