@@ -7,10 +7,10 @@ class ManagerColors {
   static const Color textColorLight = Color(0xff525167);
   static const Color subTitleColor = Color(0xff839499);
   static const Color primaryColor = Color(0xffFFB300);
-  static const Color borderSide=Color(0xff1A1919);
+  static const Color borderSide = Color(0xff1A1919);
   static const Color buttonColorLight = Color(0xFFA7E4DC);
   static const Color buttonColorDarK = Color(0xFFA7E4DC);
-  static const Color forgetTextColor=Color(0xff1CA0BF);
+  static const Color forgetTextColor = Color(0xff1CA0BF);
   static const Color greyLight = Color(0xFFD5D5D5);
   static const Color primaryColorDark = Color(0xFFB8C9CC);
   static const Color primaryColorLight = Color(0xFF000333);
@@ -29,4 +29,5 @@ class ManagerColors {
   static const Color cancelledStatus = Color(0xffF05353);
   static const Color searchColor = Color(0xffADADAD);
   static const Color descriptionColor = Color(0xff6A7F84);
+  static const Color scaffoldBackgroundLight = Colors.white;
 }
