@@ -1,3 +1,4 @@
+import 'package:act_hub/config/dependency_injection.dart';
 import 'package:act_hub/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.splashView:
+        initSplash();
         return MaterialPageRoute(
           builder: (_) => const SplashView(),
         );
