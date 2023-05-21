@@ -1,5 +1,7 @@
+import 'package:act_hub/config/constants.dart';
 import 'package:act_hub/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
@@ -11,10 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: Routes.splashView,
-    );
+    return ScreenUtilInit(
+        splitScreenMode: true,
+        minTextAdapt: true,
+        designSize: const Size(Constans.deviceWidth, Constans.deviceHeight),
+        builder: (context, child) {
+          return const GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: RouteGenerator.getRoute,
+            initialRoute: Routes.splashView,
+          );
+        });
   }
 }
