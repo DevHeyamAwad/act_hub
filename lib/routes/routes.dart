@@ -18,6 +18,7 @@ class RouteGenerator {
           builder: (_) => const SplashView(),
         );
       case Routes.outBoardingView:
+        initOutBoarding();
         return MaterialPageRoute(
           builder: (_) => const SplashView(),
         );
@@ -39,3 +40,4 @@ class RouteGenerator {
     );
   }
 }
+//
