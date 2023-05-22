@@ -1,3 +1,4 @@
+import 'package:act_hub/config/constants.dart';
 import 'package:act_hub/core/resources/manager_colors.dart';
 import 'package:act_hub/core/resources/manager_fonts.dart';
 import 'package:act_hub/core/resources/manager_styles.dart';
@@ -15,7 +16,7 @@ ThemeData managerLightThemeData() {
       appBarTheme: AppBarTheme(
           centerTitle: true,
           color: ManagerColors.greyLight,
-          elevation: 0,
+          elevation: Constans.elevationAppBar,
           titleTextStyle: getBoldTextStyle(
               fontSize: ManagerFontSize.s14,
               color: ManagerColors.primaryColor)),

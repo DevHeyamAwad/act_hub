@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
+import 'core/service/theme_service.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final ThemeService _themeService;
+
+  MyApp({super.key}) : _themeService = ThemeService();
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +22,11 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         designSize: const Size(Constans.deviceWidth, Constans.deviceHeight),
         builder: (context, child) {
-          return const GetMaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: RouteGenerator.getRoute,
             initialRoute: Routes.splashView,
+            theme: _themeService.getThemeData(),
           );
         });
   }
