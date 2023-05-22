@@ -20,13 +20,17 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         splitScreenMode: true,
         minTextAdapt: true,
-        designSize: const Size(Constans.deviceWidth, Constans.deviceHeight),
+        designSize: const Size(
+          Constans.deviceWidth,
+          Constans.deviceHeight,
+        ),
         builder: (context, child) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             onGenerateRoute: RouteGenerator.getRoute,
             initialRoute: Routes.splashView,
             theme: _themeService.getThemeData(),
+            themeMode: _themeService.getThemeMode(),
           );
         });
   }

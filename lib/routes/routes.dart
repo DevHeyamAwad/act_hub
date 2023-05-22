@@ -1,4 +1,5 @@
 import 'package:act_hub/config/dependency_injection.dart';
+import 'package:act_hub/features/out_boarding/presentation/view/out_boarding_view.dart';
 import 'package:act_hub/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class RouteGenerator {
       case Routes.outBoardingView:
         initOutBoarding();
         return MaterialPageRoute(
-          builder: (_) => const SplashView(),
+          builder: (_) => const OutBoardingView(),
         );
       default:
         return unDefinedRoute();
