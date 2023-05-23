@@ -7,30 +7,30 @@ class ManagerTextThemeLight extends TextTheme {
   @override
   TextStyle get displayMedium => getMediumStyle(
         fontSize: ManagerFontSize.s20,
-        color: ManagerColors.textColor,
+        color: ManagerColors.textColorLight,
       );
 
   @override
   TextStyle get displaySmall => getBoldTextStyle(
         fontSize: ManagerFontSize.s16,
-        color: ManagerColors.textColor,
+        color: ManagerColors.textColorLight,
       );
 
   @override
   TextStyle get headlineMedium => getMediumStyle(
         fontSize: ManagerFontSize.s16,
-        color: ManagerColors.textColor,
+        color: ManagerColors.textColorLight,
       );
 
   @override
   TextStyle get titleMedium => getMediumStyle(
         fontSize: ManagerFontSize.s14,
-        color: ManagerColors.textColor,
+        color: ManagerColors.textColorLight,
       );
 
   @override
   TextStyle get bodyLarge => getRegularStyle(
         fontSize: ManagerFontSize.s16,
-        color: ManagerColors.textColor,
+        color: ManagerColors.textColorLight,
       );
 }
