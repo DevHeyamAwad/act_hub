@@ -1,14 +1,13 @@
-import 'package:act_hub/core/resources/manager_images.dart';
 import 'package:act_hub/core/resources/manager_sizes.dart';
 import 'package:act_hub/core/widgets/main_text.dart';
-import 'package:act_hub/features/out_boarding/presentation/view/widget/slider_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/resources/manager_colors.dart';
 import '../../../../core/resources/manager_fonts.dart';
 import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/resources/manager_styles.dart';
+import '../controller/out_boarding_controller.dart';
 
 class OutBoardingView extends StatelessWidget {
   const OutBoardingView({Key? key}) : super(key: key);
@@ -20,52 +19,95 @@ class OutBoardingView extends StatelessWidget {
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.symmetric(
-            horizontal: ManagerWidth.w16,
+            horizontal: ManagerWidth.w20,
             vertical: ManagerHeight.h10,
           ),
-          child: Column(
-            children: [
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: mainButton(
-                    child: Text(
-                  ManagerStrings.skip,
-                  style: getRegularTextStyle(
-                    fontSize: ManagerFontSize.s16,
-                    color: ManagerColors.textColor,
+          child: GetBuilder<OutBoardingController>(builder: (controller) {
+            return Column(
+              children: [
+                Visibility(
+                  visible: controller.isLasedPage(),
+                  maintainSize: true,
+                  maintainState: true,
+                  maintainAnimation: true,
+                  child: Align(
+                    alignment: AlignmentDirectional.centerEnd,
+                    child: mainButton(
+                      onPressed: () {
+                        controller.skipPage();
+                      },
+                      child: Text(
+                        ManagerStrings.skip,
+                        style: getRegularTextStyle(
+                          fontSize: ManagerFontSize.s16,
+                          color: ManagerColors.textColor,
+                        ),
+                      ),
+                    ),
                   ),
-                )),
-              ),
-              SizedBox(height: ManagerHeight.h70),
-              SvgPicture.asset(
-                ManagerImages.outBoardingIllustration1,
-                width: double.infinity,
-                height: ManagerHeight.h206,
-              ),
-              SizedBox(height: ManagerHeight.h70),
-              const SliderIndicator(),
-              SizedBox(height: ManagerHeight.h50),
-              Text(
-                ManagerStrings.outBoardingTitle1,
-                style: getBoldTextStyle(
-                  fontSize: ManagerFontSize.s34,
-                  color: ManagerColors.textColor,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: ManagerHeight.h20),
-              Text(
-                ManagerStrings.outBoardingSubTitle1,
-                style: getTextStyle(
-                    fontSize: ManagerFontSize.s16,
-                    color: ManagerColors.textColorLight,
-                    weight: ManagerFontWight.w300),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: ManagerHeight.h40),
-              mainButton(child: const Icon(Icons.arrow_forward_outlined))
-            ],
-          ),
+                Expanded(
+                  child: PageView(
+                    controller: controller.pageController,
+                    children: [
+                      ...controller.pageViewItems,
+                    ],
+                    onPageChanged: (index) {
+                      controller.setCurrentPage(index);
+                    },
+                  ),
+                ),
+                Visibility(
+                  visible: controller.isLasedPage(),
+                  replacement: mainButton(
+                      child: Text(
+                        ManagerStrings.getStartButton,
+                        style: getRegularTextStyle(
+                          fontSize: ManagerFontSize.s14,
+                          color: ManagerColors.white,
+                        ),
+                      ),
+                      minWidth: double.infinity,
+                      height: ManagerHeight.h40,
+                      color: ManagerColors.primaryColor),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Visibility(
+                        visible: controller.showBackButton(),
+                        child: mainButton(
+                          onPressed: () {
+                            controller.nextPage();
+                          },
+                          child: const Icon(
+                            Icons.arrow_back_outlined,
+                            color: ManagerColors.iconColor,
+                          ),
+                          shapeBorder: const CircleBorder(),
+                          minWidth: ManagerWidth.w50,
+                          height: ManagerHeight.h50,
+                          color: ManagerColors.primaryColor,
+                        ),
+                      ),
+                      mainButton(
+                        onPressed: () {
+                          controller.nextPage();
+                        },
+                        child: const Icon(
+                          Icons.arrow_forward_outlined,
+                          color: ManagerColors.iconColor,
+                        ),
+                        shapeBorder: const CircleBorder(),
+                        minWidth: ManagerWidth.w50,
+                        height: ManagerHeight.h50,
+                        color: ManagerColors.primaryColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            );
+          }),
         ),
       ),
     );
