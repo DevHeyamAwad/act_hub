@@ -51,6 +51,8 @@ class ManagerWidth {
   static double w205 = SizeUtil.setWidth(205.0);
   static double w325 = SizeUtil.setWidth(375.0);
   static double w166 = SizeUtil.setWidth(166.0);
+  static double w65 = SizeUtil.setWidth(65.0);
+  static double w32 = SizeUtil.setWidth(32);
 }
 
 class ManagerHeight {
@@ -91,6 +93,9 @@ class ManagerHeight {
   static double h460 = SizeUtil.setHeight(460.0);
   static double h500 = SizeUtil.setHeight(530.0);
   static double h575 = SizeUtil.setHeight(575.0);
+  static double h86 = SizeUtil.setHeight(86.0);
+  static double h50 = SizeUtil.setHeight(52);
+  static double h206 = SizeUtil.setHeight(206);
 }
 
 // class ManagerPadding {

@@ -9,6 +9,7 @@ Widget scaffoldWithBackgroundImage(
     String image = ManagerImages.background}) {
   return Scaffold(
     backgroundColor: backgroundColor,
+    resizeToAvoidBottomInset: false,
     body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),

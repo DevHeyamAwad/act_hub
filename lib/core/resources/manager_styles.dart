@@ -23,20 +23,20 @@ TextStyle getMediumStyle(
     required double fontSize}) {
   return TextStyle(
       fontFamily: fontFamily,
-      fontWeight: ManagerFontWeight.medium,
+      fontWeight: ManagerFontWight.medium,
       color: color,
       decoration: decoration,
       fontSize: fontSize);
 }
 
-TextStyle getRegularStyle(
+TextStyle getRegularTextStyle(
     {String fontFamily = ManagerFontFamily.fontFamily,
     required Color color,
     TextDecoration decoration = TextDecoration.none,
     required double fontSize}) {
   return TextStyle(
       fontFamily: fontFamily,
-      fontWeight: ManagerFontWeight.regular,
+      fontWeight: ManagerFontWight.regular,
       color: color,
       decoration: decoration,
       fontSize: fontSize);
@@ -50,7 +50,22 @@ TextStyle getBoldTextStyle({
   return _textStyle(
     fontSize: fontSize,
     fontFamily: ManagerFontFamily.fontFamily,
-    fontWeight: ManagerFontWeight.bold,
+    fontWeight: ManagerFontWight.bold,
+    color: color,
+    decoration: decoration,
+  );
+}
+
+TextStyle getTextStyle({
+  required double fontSize,
+  required Color color,
+  TextDecoration decoration = TextDecoration.none,
+  FontWeight? weight,
+}) {
+  return _textStyle(
+    fontSize: fontSize,
+    fontFamily: ManagerFontFamily.fontFamily,
+    fontWeight: weight ?? ManagerFontWight.medium,
     color: color,
     decoration: decoration,
   );

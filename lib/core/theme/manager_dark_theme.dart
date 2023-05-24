@@ -17,7 +17,7 @@ ThemeData managerDarkThemeData() {
       appBarTheme: AppBarTheme(
           centerTitle: true,
           color: ManagerColors.greyLight,
-          elevation: Constans.elevationAppBar,
+          elevation: Constants.elevationAppBar,
           titleTextStyle: getBoldTextStyle(
               fontSize: ManagerFontSize.s14,
               color: ManagerColors.primaryColor)),

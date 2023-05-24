@@ -29,7 +29,7 @@ class ManagerTextThemeLight extends TextTheme {
       );
 
   @override
-  TextStyle get bodyLarge => getRegularStyle(
+  TextStyle get bodyLarge => getRegularTextStyle(
         fontSize: ManagerFontSize.s16,
         color: ManagerColors.textColorLight,
       );

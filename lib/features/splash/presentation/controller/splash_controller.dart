@@ -9,7 +9,7 @@ class SplashController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    Future.delayed(const Duration(seconds: Constans.splashDuration), () {
+    Future.delayed(const Duration(seconds: Constants.splashDuration), () {
       Get.offAllNamed(Routes.outBoardingView);
     });
   }

@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         minTextAdapt: true,
         designSize: const Size(
-          Constans.deviceWidth,
-          Constans.deviceHeight,
+          Constants.deviceWidth,
+          Constants.deviceHeight,
         ),
         builder: (context, child) {
           return GetMaterialApp(
