@@ -15,14 +15,10 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.splashView:
         initSplash();
-        return MaterialPageRoute(
-          builder: (_) => const SplashView(),
-        );
+        return MaterialPageRoute(builder: (_) => const SplashView());
       case Routes.outBoardingView:
         initOutBoarding();
-        return MaterialPageRoute(
-          builder: (_) => const OutBoardingView(),
-        );
+        return MaterialPageRoute(builder: (_) => const OutBoardingView());
       default:
         return unDefinedRoute();
     }

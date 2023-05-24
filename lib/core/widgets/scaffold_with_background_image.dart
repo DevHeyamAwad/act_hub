@@ -1,19 +1,27 @@
+import 'package:act_hub/core/widgets/will_pop_scope.dart';
 import 'package:flutter/material.dart';
 
 import '../resources/manager_colors.dart';
-import '../resources/manager_images.dart';
+import '../resources/manager_assets.dart';
 
-Widget scaffoldWithBackgroundImage(
-    {required Widget child,
-    Color backgroundColor = ManagerColors.primaryColor,
-    String image = ManagerImages.background}) {
-  return Scaffold(
-    backgroundColor: backgroundColor,
-    body: Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover),
-      ),
-      child: Center(
+Widget scaffoldWithBackGroundImage({
+  required Widget child,
+  Color backgroundColor = ManagerColors.primaryColor,
+  String image = ManagerAssets.background,
+}) {
+  return willPopScope(
+    child: Scaffold(
+      backgroundColor: backgroundColor,
+      resizeToAvoidBottomInset: false,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              image,
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: child,
       ),
     ),

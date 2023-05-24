@@ -6,7 +6,7 @@ import 'manager_colors.dart';
 
 class ManagerTextThemeDark extends TextTheme {
   @override
-  TextStyle get displayMedium => getMediumStyle(
+  TextStyle get displayMedium => getMediumTextStyle(
         fontSize: ManagerFontSize.s20,
         color: ManagerColors.textColorDark,
       );
@@ -18,19 +18,19 @@ class ManagerTextThemeDark extends TextTheme {
       );
 
   @override
-  TextStyle get headlineMedium => getMediumStyle(
+  TextStyle get headlineMedium => getMediumTextStyle(
         fontSize: ManagerFontSize.s16,
         color: ManagerColors.textColorDark,
       );
 
   @override
-  TextStyle get titleMedium => getMediumStyle(
+  TextStyle get titleMedium => getMediumTextStyle(
         fontSize: ManagerFontSize.s14,
         color: ManagerColors.textColorDark,
       );
 
   @override
-  TextStyle get bodyLarge => getRegularStyle(
+  TextStyle get bodyLarge => getRegularTextStyle(
         fontSize: ManagerFontSize.s16,
         color: ManagerColors.textColorDark,
       );

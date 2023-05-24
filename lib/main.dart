@@ -18,20 +18,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        splitScreenMode: true,
-        minTextAdapt: true,
-        designSize: const Size(
-          Constans.deviceWidth,
-          Constans.deviceHeight,
-        ),
-        builder: (context, child) {
-          return GetMaterialApp(
-            debugShowCheckedModeBanner: false,
-            onGenerateRoute: RouteGenerator.getRoute,
-            initialRoute: Routes.splashView,
-            theme: _themeService.getThemeData(),
-            themeMode: _themeService.getThemeMode(),
-          );
-        });
+      splitScreenMode: true,
+      minTextAdapt: true,
+      designSize: const Size(
+        Constants.deviceWidth,
+        Constants.deviceHeight,
+      ),
+      builder: (context, child) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: RouteGenerator.getRoute,
+          initialRoute: Routes.splashView,
+          theme: _themeService.getThemeData(),
+          themeMode: _themeService.getThemeMode(),
+        );
+      },
+    );
   }
 }
