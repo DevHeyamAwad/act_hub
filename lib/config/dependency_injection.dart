@@ -1,8 +1,8 @@
-import 'package:act_hub/features/splash/presentation/controller/splash_controller.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 
 import '../features/out_boarding/presentation/controller/out_boarding_controller.dart';
+import '../features/splash/presentation/controller/splash_controller.dart';
 
 final instance = GetIt.instance;
 

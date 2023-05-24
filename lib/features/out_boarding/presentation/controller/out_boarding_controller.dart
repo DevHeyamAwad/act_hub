@@ -48,7 +48,6 @@ class OutBoardingController extends GetxController {
   }
 
   void skipPage() {
-    //_customAnimateToPage(page: lastPage);
     pageController.animateToPage(
       lastPage,
       duration: const Duration(seconds: Constants.outBoardingDurationTime),
@@ -60,7 +59,6 @@ class OutBoardingController extends GetxController {
 
   void nextPage() {
     if (isLasedPage()) {
-      //should use this _customAnimateToPage(page: ++currentPage,);
       pageController.animateToPage(
         ++currentPage,
         duration: const Duration(seconds: Constants.outBoardingDurationTime),
@@ -71,37 +69,10 @@ class OutBoardingController extends GetxController {
   }
 
   bool isLasedPage() {
-    //TODO:fun. name should be isLastPape()
-    return currentPage <
-        lastPage; //or this body should be=> retrun currentPage==lastPage;
+    return currentPage < lastPage;
   }
-  //need these two functions
-  /*
-  void previousPage() {
-      if (!isFirstPage()) {
-        _customAnimateToPage(
-          page: --currentPage,
-        );
-        update();
-      }
-    }
-
-    bool isFirstPage() {
-    return currentPage == 0;
-  }
-  */
 
   bool showBackButton() {
     return currentPage > firstPage && currentPage < lastPage;
   }
-  //TODO: animateToPage function is duplicated code so we should use custom function
-  /*
-  void _customAnimateToPage({int? page}) {
-    pageController.animateToPage(
-      page ?? currentPage,
-      duration: const Duration(seconds: Constants.outBoardingDurationTime),
-      curve: Curves.fastLinearToSlowEaseIn,
-    );
-  }
-  */
 }
