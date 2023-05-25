@@ -80,7 +80,7 @@ class OutBoardingController extends GetxController {
   }
 
   void previousPage() {
-    if (isNotLasedPage()) {
+    if (isNotLastedPage()) {
       animatedToPage(index: --currentPage);
       update();
     }
@@ -94,7 +94,7 @@ class OutBoardingController extends GetxController {
     );
   }
 
-  bool isNotLasedPage() {
+  bool isNotLastedPage() {
     return currentPage > lastPage;
   }
 
