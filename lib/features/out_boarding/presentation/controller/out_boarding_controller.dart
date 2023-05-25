@@ -59,17 +59,32 @@ class OutBoardingController extends GetxController {
 
   void nextPage() {
     if (isLasedPage()) {
-      pageController.animateToPage(
-        ++currentPage,
-        duration: const Duration(seconds: Constants.outBoardingDurationTime),
-        curve: Curves.fastLinearToSlowEaseIn,
-      );
+      animatedToPage(index: ++currentPage);
       update();
     }
   }
 
   bool isLasedPage() {
     return currentPage < lastPage;
+  }
+
+  void previousPage() {
+    if (isNotLasedPage()) {
+      animatedToPage(index: --currentPage);
+      update();
+    }
+  }
+
+  void animatedToPage({required int index}) {
+    pageController.animateToPage(
+      index,
+      duration: const Duration(seconds: Constants.outBoardingDurationTime),
+      curve: Curves.fastLinearToSlowEaseIn,
+    );
+  }
+
+  bool isNotLasedPage() {
+    return currentPage > lastPage;
   }
 
   bool showBackButton() {
