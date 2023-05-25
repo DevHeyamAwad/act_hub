@@ -10,5 +10,5 @@ class Constants {
 }
 
 class ConstantsPrefsKeys {
-  static const String outBoardingViewedKey = 'outBoardingViewed';
+  static const String outBoardingViewedKey = 'out_boarding_viewed';
 }

@@ -1,5 +1,6 @@
 import 'package:act_hub/core/resources/manager_sizes.dart';
-import 'package:act_hub/core/widgets/main_text.dart';
+import 'package:act_hub/core/widgets/main_button.dart';
+import 'package:act_hub/features/out_boarding/presentation/view/widget/circle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -60,6 +61,9 @@ class OutBoardingView extends StatelessWidget {
                 Visibility(
                   visible: controller.isLasedPage(),
                   replacement: mainButton(
+                      onPressed: () {
+                        controller.getStart();
+                      },
                       child: Text(
                         ManagerStrings.getStartButton,
                         style: getRegularTextStyle(
@@ -89,19 +93,11 @@ class OutBoardingView extends StatelessWidget {
                           color: ManagerColors.primaryColor,
                         ),
                       ),
-                      mainButton(
-                        onPressed: () {
-                          controller.previousPage();
-                        },
-                        child: const Icon(
-                          Icons.arrow_forward_outlined,
-                          color: ManagerColors.iconColor,
-                        ),
-                        shapeBorder: const CircleBorder(),
-                        minWidth: ManagerWidth.w50,
-                        height: ManagerHeight.h50,
-                        color: ManagerColors.primaryColor,
-                      ),
+                      circleButton(
+                          onPressed: () {
+                            controller.previousPage();
+                          },
+                          iconData: Icons.arrow_back_outlined)
                     ],
                   ),
                 ),

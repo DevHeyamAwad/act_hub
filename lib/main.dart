@@ -7,8 +7,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'core/service/theme_service.dart';
 
-void main() {
-  initModule();
+void main() async {
+  await initModule();
   runApp(MyApp());
 }
 
