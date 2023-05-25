@@ -91,7 +91,7 @@ class OutBoardingView extends StatelessWidget {
                       ),
                       mainButton(
                         onPressed: () {
-                          controller.nextPage();
+                          controller.previousPage();
                         },
                         child: const Icon(
                           Icons.arrow_forward_outlined,
