@@ -27,7 +27,7 @@ class OutBoardingView extends StatelessWidget {
             return Column(
               children: [
                 Visibility(
-                  visible: controller.isLasedPage(),
+                  visible: controller.isNotLastedPage(),
                   maintainSize: true,
                   maintainState: true,
                   maintainAnimation: true,
@@ -59,45 +59,40 @@ class OutBoardingView extends StatelessWidget {
                   ),
                 ),
                 Visibility(
-                  visible: controller.isLasedPage(),
+                  visible: controller.isNotLastedPage(),
                   replacement: mainButton(
-                      onPressed: () {
-                        controller.getStart();
-                      },
-                      child: Text(
-                        ManagerStrings.getStartButton,
-                        style: getRegularTextStyle(
-                          fontSize: ManagerFontSize.s14,
-                          color: ManagerColors.white,
-                        ),
+                    onPressed: () {
+                      controller.getStart();
+                    },
+                    child: Text(
+                      ManagerStrings.getStartButton,
+                      style: getRegularTextStyle(
+                        fontSize: ManagerFontSize.s14,
+                        color: ManagerColors.white,
                       ),
-                      minWidth: double.infinity,
-                      height: ManagerHeight.h40,
-                      color: ManagerColors.primaryColor),
+                    ),
+                    minWidth: double.infinity,
+                    height: ManagerHeight.h40,
+                    color: ManagerColors.primaryColor,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Visibility(
                         visible: controller.showBackButton(),
-                        child: mainButton(
-                          onPressed: () {
-                            controller.nextPage();
-                          },
-                          child: const Icon(
-                            Icons.arrow_back_outlined,
-                            color: ManagerColors.iconColor,
-                          ),
-                          shapeBorder: const CircleBorder(),
-                          minWidth: ManagerWidth.w50,
-                          height: ManagerHeight.h50,
-                          color: ManagerColors.primaryColor,
-                        ),
-                      ),
-                      circleButton(
+                        child: circleButton(
                           onPressed: () {
                             controller.previousPage();
                           },
-                          iconData: Icons.arrow_back_outlined)
+                          iconData: Icons.arrow_back_outlined,
+                        ),
+                      ),
+                      circleButton(
+                        onPressed: () {
+                          controller.nextPage();
+                        },
+                        iconData: Icons.arrow_forward_outlined,
+                      ),
                     ],
                   ),
                 ),
