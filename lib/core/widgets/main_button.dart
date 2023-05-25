@@ -1,7 +1,7 @@
+import 'package:act_hub/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/constants.dart';
-import '../resources/manager_colors.dart';
 import '../resources/manager_sizes.dart';
 
 Widget mainButton({
@@ -14,16 +14,16 @@ Widget mainButton({
   double? elevation,
 }) {
   return MaterialButton(
-    onPressed: onPressed ?? () {},
+    onPressed: onPressed.onNull(),
     shape: shapeBorder ??
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             ManagerRadius.r12,
           ),
         ),
-    color: color ?? ManagerColors.transparent,
-    minWidth: minWidth ?? ManagerWidth.w16,
-    height: height ?? ManagerHeight.h16,
+    color: color.onNull(),
+    minWidth: minWidth.onNull(),
+    height: height.onNull(),
     elevation: elevation ?? Constants.elevationButton,
     child: child,
   );
