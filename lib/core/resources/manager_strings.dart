@@ -12,4 +12,5 @@ class ManagerStrings {
   static const String outBoardingSubTitle3 =
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 3.';
   static const String getStartButton = 'Let\'s get started';
+  static const String bearer = 'Bearer';
 }

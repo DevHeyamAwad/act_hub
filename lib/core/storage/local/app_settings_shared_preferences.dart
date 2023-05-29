@@ -20,4 +20,12 @@ class AppSettingsSharedPreferences {
   void clear() {
     _sharedPreferences.clear();
   }
+
+  Future<void> setToken(String token) async {
+    await _sharedPreferences.setString(ConstantsPrefsKeys.token, 'token');
+  }
+
+  String getToken() {
+    return _sharedPreferences.getString(ConstantsPrefsKeys.token).onNull();
+  }
 }
