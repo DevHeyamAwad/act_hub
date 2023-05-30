@@ -13,4 +13,5 @@ class ManagerStrings {
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 3.';
   static const String getStartButton = 'Let\'s get started';
   static const String bearer = 'Bearer';
+  static const String noInternetConnection = 'No Internet Connection';
 }
