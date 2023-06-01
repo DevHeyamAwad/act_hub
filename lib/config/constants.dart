@@ -6,6 +6,8 @@ class Constants {
   static const double elevationAppBar = 0;
   static const double elevationButton = 0;
   static const int sliderItems = 3;
+  static const int loginFirstPartFlex = 1;
+  static const int loginSecondPartFlex = 3;
 }
 
 class ConstantsPrefsKeys {
@@ -20,7 +22,7 @@ class ApiConstants {
   static const int receiveTimeOutDuration = 120;
   static const String email = 'email';
   static const String password = 'password';
-
+  static const String token = 'token';
   static const String message = 'message';
   static const String errors = 'errors';
   static const String error = 'error';
