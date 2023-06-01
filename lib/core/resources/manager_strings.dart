@@ -14,4 +14,8 @@ class ManagerStrings {
   static const String getStartButton = 'Let\'s get started';
   static const String bearer = 'Bearer';
   static const String noInternetConnection = 'No Internet Connection';
+  static const String login = 'Login';
+  static const String password = 'Password';
+  static const String email = 'Email';
+  static const String invalidEmail = 'Invalid Email';
 }
