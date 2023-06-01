@@ -1,4 +1,8 @@
 import 'package:act_hub/core/internet_checker/internet_checker.dart';
+import 'package:act_hub/features/auth/data/data_source/remote_login_data_source.dart';
+import 'package:act_hub/features/auth/data/login_repository_impl/login_repository_impl.dart';
+import 'package:act_hub/features/auth/domain/repository/login_repository.dart';
+import 'package:act_hub/features/auth/domain/use_case/login_use_case.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -54,4 +58,24 @@ initOutBoarding() {
 
 disposeOutBoarding() {
   Get.delete<OutBoardingController>();
+}
+
+initLoginModule() {
+  if (!GetIt.I.isRegistered<LoginRepository>()) {
+    instance.registerLazySingleton<RemoteLoginDataSource>(
+        () => RemoteLoginDataSourceImplement(instance<AppApi>()));
+  }
+
+  if (!GetIt.I.isRegistered<LoginRepository>()) {
+    instance
+        .registerLazySingleton<LoginRepository>(() => LoginRepositoryImplement(
+              instance(),
+              instance(),
+            ));
+  }
+
+  if (!GetIt.I.isRegistered<LoginUseCase>()) {
+    instance.registerFactory<LoginUseCase>(
+        () => LoginUseCase(instance<LoginRepository>()));
+  }
 }
