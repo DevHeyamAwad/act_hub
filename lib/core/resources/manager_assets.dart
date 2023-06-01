@@ -1,4 +1,5 @@
 const String imagesPath = 'assets/images';
+const String jsonPath = 'assets/json';
 
 class ManagerAssets {
   static const String logo = '$imagesPath/logo.svg';
@@ -9,4 +10,10 @@ class ManagerAssets {
       '$imagesPath/illustration2.svg';
   static const String outBoardingIllustration3 =
       '$imagesPath/illustration3.svg';
+}
+
+class ManagerJson {
+  static const String loading = '$jsonPath/loading.json';
+  static const String error = '$jsonPath/error.json';
+  static const String success = '$jsonPath/success.json';
 }
