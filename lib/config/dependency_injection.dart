@@ -12,6 +12,7 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import '../core/network/app_api.dart';
 import '../core/network/dio_factory.dart';
 import '../core/storage/local/app_settings_shared_preferences.dart';
+import '../features/auth/presentation/controller/login_controller.dart';
 import '../features/out_boarding/presentation/controller/out_boarding_controller.dart';
 import '../features/splash/presentation/controller/splash_controller.dart';
 
@@ -78,4 +79,5 @@ initLoginModule() {
     instance.registerFactory<LoginUseCase>(
         () => LoginUseCase(instance<LoginRepository>()));
   }
+  Get.put<LoginController>(LoginController());
 }
