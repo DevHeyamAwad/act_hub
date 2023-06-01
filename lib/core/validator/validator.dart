@@ -1,0 +1,32 @@
+import 'package:act_hub/core/resources/manager_strings.dart';
+import 'package:get/get_utils/src/get_utils/get_utils.dart';
+
+class FailedValidator {
+  String? validateEmail(String? email) {
+    if (email!.isEmpty) {
+      return ManagerStrings.invalidEmail;
+    }
+
+    if (!RegExp(r"\S+@\S+\.\S+").hasMatch(email)) {
+      return ManagerStrings.invalidEmail;
+    }
+
+    if (!GetUtils.isEmail(email)) {
+      return ManagerStrings.invalidEmail;
+    }
+
+    return null;
+  }
+
+  String? validatePassword(String? password) {
+    if (password!.isEmpty) {
+      return ManagerStrings.invalidEmail;
+    }
+
+    if (password.length < 8) {
+      return ManagerStrings.invalidEmail;
+    }
+
+    return null;
+  }
+}
