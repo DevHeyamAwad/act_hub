@@ -16,6 +16,7 @@ class ManagerHeight {
   static double h70 = SizeUtil.setHeight(70);
   static double h86 = SizeUtil.setHeight(86);
   static double h206 = SizeUtil.setHeight(206);
+  static double h30 = SizeUtil.setHeight(30);
 }
 
 class ManagerWidth {
@@ -40,6 +41,7 @@ class ManagerRadius {
   static double r8 = SizeUtil.setRadius(8);
   static double r10 = SizeUtil.setRadius(10);
   static double r12 = SizeUtil.setRadius(12);
+  static double h30 = SizeUtil.setHeight(30);
 }
 
 class ManagerIconSize {
