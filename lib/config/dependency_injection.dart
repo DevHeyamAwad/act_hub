@@ -68,11 +68,10 @@ initLoginModule() {
   }
 
   if (!GetIt.I.isRegistered<LoginRepository>()) {
-    instance
-        .registerLazySingleton<LoginRepository>(() => LoginRepositoryImplement(
-              instance(),
-              instance(),
-            ));
+    instance.registerLazySingleton<LoginRepository>(() => LoginRepositoryImpl(
+          instance(),
+          instance(),
+        ));
   }
 
   if (!GetIt.I.isRegistered<LoginUseCase>()) {

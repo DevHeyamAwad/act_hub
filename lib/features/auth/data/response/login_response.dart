@@ -1,9 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../../core/base_response/base_response.dart';
+
 part 'login_response.g.dart';
 
 @JsonSerializable()
-class LoginResponse {
+class LoginResponse extends BaseResponse {
   @JsonKey(name: 'token')
   String? token;
 
