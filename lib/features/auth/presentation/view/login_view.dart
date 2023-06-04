@@ -1,6 +1,5 @@
 import 'package:act_hub/core/widgets/main_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:act_hub/core/widgets/scaffold_with_background_image.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
@@ -96,7 +95,7 @@ class LoginView extends StatelessWidget {
                           height: ManagerHeight.h40,
                           onPressed: () {
                             if (controller.formKey.currentState!.validate()) {
-                              controller.login();
+                              controller.login(context);
                             }
                           })
                     ],

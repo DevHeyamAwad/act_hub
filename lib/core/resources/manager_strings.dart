@@ -21,4 +21,5 @@ class ManagerStrings {
   static const String invalidPassword = 'Invalid Password';
   static const String loading = 'loading...';
   static const String ok = 'ok';
+  static const String thanks = 'Thanks';
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get.dart';
 
 import '../../../../config/dependency_injection.dart';
+import '../../../../core/resources/manager_strings.dart';
+import '../../../../core/state_render/state_renderer.dart';
 import '../../domain/use_case/login_use_case.dart';
 
 class LoginController extends GetxController {
@@ -10,14 +12,34 @@ class LoginController extends GetxController {
   late final LoginUseCase _loginUseCase = instance<LoginUseCase>();
   var formKey = GlobalKey<FormState>();
 
-  Future<void> login() async {
+  Future<void> login(BuildContext context) async {
+    dialogRender(
+        context: context,
+        stateRenderType: StateRenderType.popUpLoadingState,
+        message: ManagerStrings.loading,
+        title: '',
+        retryAction: () {});
     (await _loginUseCase.execute(
       LoginUseCaseInput(email: email.text, password: password.text),
     ))
         .fold((l) {
-      print('failed');
+      Get.back();
+      dialogRender(
+        context: context,
+        stateRenderType: StateRenderType.popUpErrorState,
+        message: l.message,
+        title: '',
+        retryAction: () {},
+      );
     }, (r) {
-      print('success');
+      Get.back();
+      dialogRender(
+        context: context,
+        stateRenderType: StateRenderType.popUpSuccessState,
+        message: ManagerStrings.thanks,
+        title: '',
+        retryAction: () {},
+      );
     });
   }
 }
