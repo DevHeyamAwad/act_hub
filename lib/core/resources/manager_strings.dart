@@ -19,4 +19,6 @@ class ManagerStrings {
   static const String email = 'Email';
   static const String invalidEmail = 'Invalid Email';
   static const String invalidPassword = 'Invalid Password';
+  static const String loading = 'loading...';
+  static const String ok = 'ok';
 }

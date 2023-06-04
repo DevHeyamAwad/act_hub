@@ -15,6 +15,7 @@ class DioFactory {
     Map<String, String> headers = {
       ApiConstants.authorization:
           getAuthorization(_appSettingsSharedPreferences.getToken()),
+      'Accept_language': 'en'
     };
 
     dio.options = BaseOptions(
