@@ -62,21 +62,30 @@ disposeOutBoarding() {
 }
 
 initLoginModule() {
-  if (!GetIt.I.isRegistered<LoginRepository>()) {
+  if (!GetIt.I.isRegistered<RemoteLoginDataSource>()) {
     instance.registerLazySingleton<RemoteLoginDataSource>(
-        () => RemoteLoginDataSourceImplement(instance<AppApi>()));
+      () => RemoteLoginDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
   }
 
   if (!GetIt.I.isRegistered<LoginRepository>()) {
-    instance.registerLazySingleton<LoginRepository>(() => LoginRepositoryImpl(
-          instance(),
-          instance(),
-        ));
+    instance.registerLazySingleton<LoginRepository>(
+      () => LoginRepositoryImpl(
+        instance(),
+        instance(),
+      ),
+    );
   }
 
   if (!GetIt.I.isRegistered<LoginUseCase>()) {
     instance.registerFactory<LoginUseCase>(
-        () => LoginUseCase(instance<LoginRepository>()));
+      () => LoginUseCase(
+        instance<LoginRepository>(),
+      ),
+    );
   }
+
   Get.put<LoginController>(LoginController());
 }
