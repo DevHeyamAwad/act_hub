@@ -14,6 +14,10 @@ TextFormField baseTextFormField({
   validator,
 }) {
   return TextFormField(
+    style: getRegularTextStyle(
+      fontSize: ManagerFontSize.s16,
+      color: ManagerColors.black,
+    ),
     controller: controller,
     keyboardType: keyboardType,
     cursorColor: ManagerColors.primaryColor,
@@ -41,7 +45,7 @@ TextFormField baseTextFormField({
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: const BorderSide(
-          color: ManagerColors.white,
+          color: ManagerColors.primaryColor,
         ),
         borderRadius: BorderRadius.circular(
           ManagerRadius.r6,

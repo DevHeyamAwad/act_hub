@@ -86,6 +86,5 @@ initLoginModule() {
       ),
     );
   }
-
   Get.put<LoginController>(LoginController());
 }
