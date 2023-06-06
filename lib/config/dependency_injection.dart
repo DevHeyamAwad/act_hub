@@ -1,8 +1,12 @@
 import 'package:act_hub/core/internet_checker/internet_checker.dart';
 import 'package:act_hub/features/auth/data/data_source/remote_login_data_source.dart';
+import 'package:act_hub/features/auth/data/data_source/remote_register_data_source.dart';
 import 'package:act_hub/features/auth/data/login_repository_impl/login_repository_impl.dart';
+import 'package:act_hub/features/auth/data/login_repository_impl/register_repository_impl.dart';
 import 'package:act_hub/features/auth/domain/repository/login_repository.dart';
+import 'package:act_hub/features/auth/domain/repository/register_repository.dart';
 import 'package:act_hub/features/auth/domain/use_case/login_use_case.dart';
+import 'package:act_hub/features/auth/domain/use_case/register_use_case.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +17,6 @@ import '../core/network/app_api.dart';
 import '../core/network/dio_factory.dart';
 import '../core/storage/local/app_settings_shared_preferences.dart';
 import '../features/auth/presentation/controller/login_controller.dart';
-import '../features/auth/presentation/controller/register_controller.dart';
 import '../features/out_boarding/presentation/controller/out_boarding_controller.dart';
 import '../features/splash/presentation/controller/splash_controller.dart';
 
@@ -64,6 +67,8 @@ disposeOutBoarding() {
 
 initLoginModule() {
   disposeSplash();
+  disposeOutBoarding();
+  disposeRegisterModule();
   if (!GetIt.I.isRegistered<RemoteLoginDataSource>()) {
     instance.registerLazySingleton<RemoteLoginDataSource>(
       () => RemoteLoginDataSourceImplement(
@@ -107,5 +112,21 @@ diposeLoginModule() {
 }
 
 initRegisterModule() {
-  Get.put<RegisterController>(RegisterController());
+  diposeLoginModule();
+  if (!GetIt.I.isRegistered<RemoteRegisterDataSource>()) {
+    instance.registerLazySingleton<RemoteRegisterDataSource>(
+        () => RemoteRegisterDataSourceImplement(instance()));
+  }
+  if (!GetIt.I.isRegistered<RegisterRepository>()) {
+    instance.registerLazySingleton<RegisterRepository>(
+      () => RegisterRepositoryImpl(instance(), instance()),
+    );
+  }
+  if (!GetIt.I.isRegistered<RegisterUseCase>()) {
+    instance.registerLazySingleton<RegisterUseCase>(
+      () => RegisterUseCase(instance()),
+    );
+  }
 }
+
+disposeRegisterModule() {}
