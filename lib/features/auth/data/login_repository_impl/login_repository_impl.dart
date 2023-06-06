@@ -9,15 +9,21 @@ import '../request/login_request.dart';
 import '../../domain/model/login.dart';
 import '../../domain/repository/login_repository.dart';
 
-class LoginRepositoryImplement implements LoginRepository {
-  final RemoteLoginDataSource _remoteLoginDataSource;
-  final NetworkInfo _networkInfo;
-  LoginRepositoryImplement(this._remoteLoginDataSource, this._networkInfo);
+class LoginRepositoryImpl implements LoginRepository {
+  final RemoteLoginDataSource _dataSource;
+  final NetworkInfo networkInfo;
+  LoginRepositoryImpl(this._dataSource, this.networkInfo);
   @override
   Future<Either<Failure, Login>> login(LoginRequest loginRequest) async {
-    if (await _networkInfo.isConnected) {
-      final response = await _remoteLoginDataSource.login(loginRequest);
-      return Right(response.toDomain());
+    if (await networkInfo.isConnected) {
+      try {
+        final response = await _dataSource.login(loginRequest);
+        return Right(response.toDomain());
+      } catch (e) {
+        return Left(
+          ErrorHandler.handle(e).failure,
+        );
+      }
     } else {
       return Left(
         Failure(ResponseCode.NO_INTERNET_CONNECTION.value,
