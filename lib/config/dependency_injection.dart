@@ -63,6 +63,7 @@ disposeOutBoarding() {
 }
 
 initLoginModule() {
+  disposeSplash();
   if (!GetIt.I.isRegistered<RemoteLoginDataSource>()) {
     instance.registerLazySingleton<RemoteLoginDataSource>(
       () => RemoteLoginDataSourceImplement(
@@ -88,6 +89,12 @@ initLoginModule() {
     );
   }
   Get.put<LoginController>(LoginController());
+}
+
+diposeLoginModule() {
+  if (GetIt.I.isRegistered<LoginUseCase>()) {
+    instance.unregister<RemoteLoginDataSource>();
+  }
 }
 
 initRegisterModule() {
