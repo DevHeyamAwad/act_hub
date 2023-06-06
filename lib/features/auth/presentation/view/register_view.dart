@@ -2,7 +2,6 @@ import 'package:act_hub/core/resources/manager_colors.dart';
 import 'package:act_hub/features/auth/presentation/view/widget/auth_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../core/resources/manager_fonts.dart';
 import '../../../../core/resources/manager_sizes.dart';
 import '../../../../core/resources/manager_strings.dart';
@@ -15,7 +14,7 @@ import '../controller/register_controller.dart';
 
 class RegisterView extends StatelessWidget {
   final FailedValidator _failedValidator = FailedValidator();
-
+  bool isAgreementPolicy = false;
   RegisterView({super.key});
 
   @override
@@ -86,8 +85,10 @@ class RegisterView extends StatelessWidget {
                   Row(
                     children: [
                       Checkbox(
-                        value: true,
-                        onChanged: (value) {},
+                        value: controller.isAgreementPolicy,
+                        onChanged: (value) {
+                          controller.changePolicyStatus(value!);
+                        },
                         activeColor: ManagerColors.primaryColor,
                         shape: RoundedRectangleBorder(
                             borderRadius:

@@ -19,14 +19,26 @@ class LoginController extends GetxController {
   var formKey = GlobalKey<FormState>();
   final AppSettingsSharedPreferences _appSettingsSharedPreferences =
       instance<AppSettingsSharedPreferences>();
+  bool rememberMe = false;
 
-  Future<void> login(BuildContext context) async {
+  changeRememberMe(bool status) {
+    rememberMe = status;
+    update();
+  }
+
+  void performLogin(BuildContext context) {
+    if (formKey.currentState!.validate()) {
+      _login(context);
+    }
+  }
+
+  Future<void> _login(BuildContext context) async {
     dialogRender(
-      context: context,
-      stateRenderType: StateRenderType.popUpLoadingState,
-      message: ManagerStrings.loading,
-      title: '',
-    );
+        context: context,
+        stateRenderType: StateRenderType.popUpLoadingState,
+        message: ManagerStrings.loading,
+        title: '',
+        retryAction: () {});
     (await _loginUseCase.execute(
       LoginUseCaseInput(email: email.text, password: password.text),
     ))
@@ -49,8 +61,11 @@ class LoginController extends GetxController {
         ),
       );
     }, (r) {
-      _appSettingsSharedPreferences.setEmail(email.text);
-      _appSettingsSharedPreferences.setPassword(password.text);
+      if (rememberMe) {
+        _appSettingsSharedPreferences.setEmail(email.text);
+        _appSettingsSharedPreferences.setPassword(password.text);
+        _appSettingsSharedPreferences.setLoggedIn();
+      }
       _appSettingsSharedPreferences.setToken(r.token.onNull());
       Get.back();
       dialogRender(

@@ -19,6 +19,7 @@ class RegisterController extends GetxController {
   final AppSettingsSharedPreferences _appSettingsSharedPreferences =
       instance<AppSettingsSharedPreferences>();
   final RegisterUseCase _registerUseCase = instance<RegisterUseCase>();
+  bool isAgreementPolicy = false;
 
   Future<void> register(BuildContext context) async {
     dialogRender(
@@ -79,4 +80,6 @@ class RegisterController extends GetxController {
       );
     });
   }
+
+  changePolicyStatus() {}
 }
