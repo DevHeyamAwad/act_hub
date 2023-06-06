@@ -6,7 +6,6 @@ import '../../../../config/dependency_injection.dart';
 import '../../../../core/resources/manager_sizes.dart';
 import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/state_render/state_renderer.dart';
-import '../../../../core/storage/local/app_settings_shared_preferences.dart';
 import '../../../../core/widgets/dialog_button.dart';
 
 class RegisterController extends GetxController {
@@ -16,19 +15,41 @@ class RegisterController extends GetxController {
   late TextEditingController password = TextEditingController();
   late TextEditingController confirmPassword = TextEditingController();
   var formKey = GlobalKey<FormState>();
-  final AppSettingsSharedPreferences _appSettingsSharedPreferences =
-      instance<AppSettingsSharedPreferences>();
   final RegisterUseCase _registerUseCase = instance<RegisterUseCase>();
   bool isAgreementPolicy = false;
 
-  Future<void> register(BuildContext context) async {
+  changePolicyStatus(bool status) {
+    isAgreementPolicy = status;
+    update();
+  }
+
+  void performRegister(BuildContext context) {
+    if (formKey.currentState!.validate()) {
+      if (isAgreementPolicy) {
+        _register(context);
+      } else {
+        dialogRender(
+          context: context,
+          stateRenderType: StateRenderType.popUpErrorState,
+          message: ManagerStrings.shouldAgreePolicies,
+          title: ManagerStrings.error,
+          child: dialogButton(
+            message: ManagerStrings.ok,
+            onPressed: () {
+              Get.back();
+            },
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _register(BuildContext context) async {
     dialogRender(
       context: context,
       stateRenderType: StateRenderType.popUpLoadingState,
       message: ManagerStrings.loading,
       title: '',
-      child: null,
-      retryAction: null,
     );
     (await _registerUseCase.execute(
       RegisterUseCaseInput(
@@ -56,7 +77,6 @@ class RegisterController extends GetxController {
                 Get.back();
               }),
         ),
-        retryAction: null,
       );
     }, (r) {
       Get.back();
@@ -72,14 +92,12 @@ class RegisterController extends GetxController {
           child: dialogButton(
             onPressed: () {
               Get.back();
+              // Get.offAllNamed(Routes.homeView);
             },
             message: ManagerStrings.thanks,
           ),
         ),
-        retryAction: null,
       );
     });
   }
-
-  changePolicyStatus() {}
 }

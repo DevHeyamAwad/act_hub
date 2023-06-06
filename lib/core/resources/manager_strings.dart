@@ -36,4 +36,6 @@ class ManagerStrings {
   static const String signIn = 'Sign In';
   static const String agreePolicy =
       'I agree to our Terms of service and Privacy policy';
+  static const String shouldAgreePolicies = 'Should Agree Terms and Policies';
+  static const String error = 'Error';
 }

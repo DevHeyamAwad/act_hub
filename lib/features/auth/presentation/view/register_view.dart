@@ -8,13 +8,14 @@ import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/resources/manager_styles.dart';
 import '../../../../core/validator/validator.dart';
 import '../../../../core/widgets/base_text_form_feild.dart';
+import '../../../../core/widgets/custom_check_box.dart';
 import '../../../../core/widgets/main_button.dart';
 import '../../../../routes/routes.dart';
 import '../controller/register_controller.dart';
 
 class RegisterView extends StatelessWidget {
   final FailedValidator _failedValidator = FailedValidator();
-  bool isAgreementPolicy = false;
+
   RegisterView({super.key});
 
   @override
@@ -84,15 +85,11 @@ class RegisterView extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Checkbox(
-                        value: controller.isAgreementPolicy,
-                        onChanged: (value) {
-                          controller.changePolicyStatus(value!);
+                      customCheckbox(
+                        state: controller.isAgreementPolicy,
+                        onChanged: (status) {
+                          controller.changePolicyStatus(status!);
                         },
-                        activeColor: ManagerColors.primaryColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(ManagerRadius.r4)),
                       ),
                       Text(
                         ManagerStrings.agreePolicy,
@@ -117,7 +114,7 @@ class RegisterView extends StatelessWidget {
                       height: ManagerHeight.h40,
                       onPressed: () {
                         if (controller.formKey.currentState!.validate()) {
-                          controller.register(context);
+                          controller.performRegister(context);
                         }
                       }),
                   Row(

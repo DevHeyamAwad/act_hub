@@ -9,6 +9,7 @@ import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/resources/manager_styles.dart';
 import '../../../../core/validator/validator.dart';
 import '../../../../core/widgets/base_text_form_feild.dart';
+import '../../../../core/widgets/custom_check_box.dart';
 import '../../../../routes/routes.dart';
 import '../controller/login_controller.dart';
 import 'package:act_hub/features/auth/presentation/view/widget/auth_view.dart';
@@ -17,6 +18,7 @@ class LoginView extends StatelessWidget {
   final FailedValidator _failedValidator = FailedValidator();
 
   LoginView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return authView(
@@ -57,13 +59,11 @@ class LoginView extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Checkbox(
-                          value: true,
-                          onChanged: (value) {},
-                          activeColor: ManagerColors.primaryColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(ManagerRadius.r4)),
+                        customCheckbox(
+                          state: controller.rememberMe,
+                          onChanged: (status) {
+                            controller.changeRememberMe(status!);
+                          },
                         ),
                         Text(
                           ManagerStrings.rememberMe,
@@ -98,7 +98,7 @@ class LoginView extends StatelessWidget {
                     height: ManagerHeight.h40,
                     onPressed: () {
                       if (controller.formKey.currentState!.validate()) {
-                        controller.login(context);
+                        controller.performLogin(context);
                       }
                     }),
                 Row(
