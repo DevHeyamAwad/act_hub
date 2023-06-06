@@ -50,7 +50,7 @@ class _AppApi implements AppApi {
   }
 
   @override
-  Future<InvalidType> register(
+  Future<RegisterResponse> register(
     dynamic name,
     dynamic email,
     dynamic password,
@@ -68,7 +68,7 @@ class _AppApi implements AppApi {
       'phone': phone,
     };
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<InvalidType>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<RegisterResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -80,7 +80,7 @@ class _AppApi implements AppApi {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = InvalidType.fromJson(_result.data!);
+    final value = RegisterResponse.fromJson(_result.data!);
     return value;
   }
 

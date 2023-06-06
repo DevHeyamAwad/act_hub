@@ -13,6 +13,7 @@ import '../core/network/app_api.dart';
 import '../core/network/dio_factory.dart';
 import '../core/storage/local/app_settings_shared_preferences.dart';
 import '../features/auth/presentation/controller/login_controller.dart';
+import '../features/auth/presentation/controller/register_controller.dart';
 import '../features/out_boarding/presentation/controller/out_boarding_controller.dart';
 import '../features/splash/presentation/controller/splash_controller.dart';
 
@@ -87,4 +88,8 @@ initLoginModule() {
     );
   }
   Get.put<LoginController>(LoginController());
+}
+
+initRegisterModule() {
+  Get.put<RegisterController>(RegisterController());
 }
