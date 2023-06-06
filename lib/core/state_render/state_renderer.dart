@@ -1,11 +1,11 @@
-import 'package:act_hub_training/config/constants.dart';
-import 'package:act_hub_training/core/resources/manager_assets.dart';
-import 'package:act_hub_training/core/resources/manager_colors.dart';
-import 'package:act_hub_training/core/resources/manager_fonts.dart';
-import 'package:act_hub_training/core/resources/manager_sizes.dart';
-import 'package:act_hub_training/core/resources/manager_strings.dart';
-import 'package:act_hub_training/core/resources/manger_styles.dart';
-import 'package:act_hub_training/core/widgets/main_button.dart';
+import 'package:act_hub/config/constants.dart';
+import 'package:act_hub/core/resources/manager_assets.dart';
+import 'package:act_hub/core/resources/manager_colors.dart';
+import 'package:act_hub/core/resources/manager_fonts.dart';
+import 'package:act_hub/core/resources/manager_sizes.dart';
+import 'package:act_hub/core/resources/manager_strings.dart';
+import 'package:act_hub/core/resources/manager_styles.dart';
+import 'package:act_hub/core/widgets/main_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -76,26 +76,26 @@ class StateRender extends StatelessWidget {
 
   Padding popUpButton(String title, onPressed) {
     return Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: ManagerWidth.w18,
-              vertical: ManagerHeight.h18,
+      padding: EdgeInsets.symmetric(
+        horizontal: ManagerWidth.w18,
+        vertical: ManagerHeight.h18,
+      ),
+      child: SizedBox(
+        child: mainButton(
+          minWidth: ManagerWidth.w100,
+          height: ManagerHeight.h48,
+          color: ManagerColors.primaryColor,
+          child: Text(
+            title,
+            style: getRegularTextStyle(
+              fontSize: ManagerFontSize.s16,
+              color: ManagerColors.white,
             ),
-            child: SizedBox(
-              child: mainButton(
-                minWidth: ManagerWidth.w100,
-                height: ManagerHeight.h48,
-                color: ManagerColors.primaryColor,
-                child: Text(
-                  title,
-                  style: getRegularTextStyle(
-                    fontSize: ManagerFontSize.s16,
-                    color: ManagerColors.white,
-                  ),
-                ),
-                onPressed: onPressed,
-              ),
-            ),
-          );
+          ),
+          onPressed: onPressed,
+        ),
+      ),
+    );
   }
 
   Dialog popDialog(BuildContext context, List<Widget> children) {

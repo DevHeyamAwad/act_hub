@@ -14,6 +14,8 @@ class Constants {
 class ConstantsPrefsKeys {
   static const String outBoardingViewedKey = 'out_boarding_viewed';
   static const String token = 'token';
+  static const String email = 'email';
+  static const String password = 'password';
 }
 
 class ApiConstants {
@@ -29,4 +31,10 @@ class ApiConstants {
   static const String error = 'error';
   static const String badRequest = 'Bad Request';
   static const String noInternetConnection = 'No Internet Connection';
+  static const String acceptLanguage = 'Accept-Language';
+  static const String english = 'en';
+  static const String status = 'status';
+  static const String name = 'name';
+  static const String passwordConfirmation = 'password_confirmation';
+  static const String phone = 'phone';
 }
