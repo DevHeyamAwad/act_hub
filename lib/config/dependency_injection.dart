@@ -17,6 +17,7 @@ import '../core/network/app_api.dart';
 import '../core/network/dio_factory.dart';
 import '../core/storage/local/app_settings_shared_preferences.dart';
 import '../features/auth/presentation/controller/login_controller.dart';
+import '../features/auth/presentation/controller/register_controller.dart';
 import '../features/out_boarding/presentation/controller/out_boarding_controller.dart';
 import '../features/splash/presentation/controller/splash_controller.dart';
 
@@ -96,12 +97,12 @@ initLoginModule() {
   Get.put<LoginController>(LoginController());
 }
 
-diposeLoginModule() {
-  if (GetIt.I.isRegistered<LoginUseCase>()) {
+disposeLoginModule() {
+  if (GetIt.I.isRegistered<RemoteLoginDataSource>()) {
     instance.unregister<RemoteLoginDataSource>();
   }
 
-  if (GetIt.I.isRegistered<LoginUseCase>()) {
+  if (GetIt.I.isRegistered<LoginRepository>()) {
     instance.unregister<LoginRepository>();
   }
 
@@ -112,21 +113,47 @@ diposeLoginModule() {
 }
 
 initRegisterModule() {
-  diposeLoginModule();
+  disposeLoginModule();
   if (!GetIt.I.isRegistered<RemoteRegisterDataSource>()) {
     instance.registerLazySingleton<RemoteRegisterDataSource>(
-        () => RemoteRegisterDataSourceImplement(instance()));
+      () => RemoteRegisterDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
   }
+
   if (!GetIt.I.isRegistered<RegisterRepository>()) {
     instance.registerLazySingleton<RegisterRepository>(
-      () => RegisterRepositoryImpl(instance(), instance()),
+      () => RegisterRepositoryImpl(
+        instance<RemoteRegisterDataSource>(),
+        instance<NetworkInfo>(),
+      ),
     );
   }
+
   if (!GetIt.I.isRegistered<RegisterUseCase>()) {
     instance.registerLazySingleton<RegisterUseCase>(
-      () => RegisterUseCase(instance()),
+      () => RegisterUseCase(
+        instance<RegisterRepository>(),
+      ),
     );
   }
+
+  Get.put<RegisterController>(RegisterController());
 }
 
-disposeRegisterModule() {}
+disposeRegisterModule() {
+  if (GetIt.I.isRegistered<RemoteRegisterDataSource>()) {
+    instance.unregister<RemoteRegisterDataSource>();
+  }
+
+  if (GetIt.I.isRegistered<RegisterRepository>()) {
+    instance.unregister<RegisterRepository>();
+  }
+
+  if (GetIt.I.isRegistered<RegisterUseCase>()) {
+    instance.unregister<RegisterUseCase>();
+  }
+
+  Get.delete<RegisterController>();
+}
