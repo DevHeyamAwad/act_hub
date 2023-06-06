@@ -23,14 +23,17 @@ class AppSettingsSharedPreferences {
         .onNull();
   }
 
-  Future<void> setToken(String token) async {    await setLoggedIn();
-
+  Future<void> setToken(String token) async {
+    await setLoggedIn();
+    await setLoggedIn();
     await _sharedPreferences.setString(ConstantsPrefsKeys.token, token);
   }
 
   String getToken() {
     return _sharedPreferences.getString(ConstantsPrefsKeys.token).onNull();
-  } Future<void> setEmail(String email) async {
+  }
+
+  Future<void> setEmail(String email) async {
     await _sharedPreferences.setString(ConstantsPrefsKeys.email, email);
   }
 
@@ -53,5 +56,4 @@ class AppSettingsSharedPreferences {
   bool loggedIn() {
     return _sharedPreferences.getBool(ConstantsPrefsKeys.loggedIn).onNull();
   }
-
 }
