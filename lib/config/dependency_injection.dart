@@ -95,6 +95,15 @@ diposeLoginModule() {
   if (GetIt.I.isRegistered<LoginUseCase>()) {
     instance.unregister<RemoteLoginDataSource>();
   }
+
+  if (GetIt.I.isRegistered<LoginUseCase>()) {
+    instance.unregister<LoginRepository>();
+  }
+
+  if (GetIt.I.isRegistered<LoginUseCase>()) {
+    instance.unregister<LoginUseCase>();
+  }
+  Get.delete<LoginController>();
 }
 
 initRegisterModule() {
