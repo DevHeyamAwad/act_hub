@@ -2,13 +2,13 @@ import 'package:act_hub/core/resources/manager_colors.dart';
 import 'package:act_hub/features/auth/presentation/view/widget/auth_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../core/resources/manager_fonts.dart';
 import '../../../../core/resources/manager_sizes.dart';
 import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/resources/manager_styles.dart';
 import '../../../../core/validator/validator.dart';
 import '../../../../core/widgets/base_text_form_feild.dart';
+import '../../../../core/widgets/custom_check_box.dart';
 import '../../../../core/widgets/main_button.dart';
 import '../../../../routes/routes.dart';
 import '../controller/register_controller.dart';
@@ -85,13 +85,11 @@ class RegisterView extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Checkbox(
-                        value: true,
-                        onChanged: (value) {},
-                        activeColor: ManagerColors.primaryColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(ManagerRadius.r4)),
+                      customCheckbox(
+                        state: controller.isAgreementPolicy,
+                        onChanged: (status) {
+                          controller.changePolicyStatus(status!);
+                        },
                       ),
                       Text(
                         ManagerStrings.agreePolicy,
@@ -116,7 +114,7 @@ class RegisterView extends StatelessWidget {
                       height: ManagerHeight.h40,
                       onPressed: () {
                         if (controller.formKey.currentState!.validate()) {
-                          controller.register(context);
+                          controller.performRegister(context);
                         }
                       }),
                   Row(
