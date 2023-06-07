@@ -14,6 +14,5 @@ class RegisterResponse extends BaseResponse {
   factory RegisterResponse.fromJson(Map<String, dynamic> json) =>
       _$RegisterResponseFromJson(json);
 
-  Map<String, dynamic> toJson(RegisterResponse instance) =>
-      _$RegisterResponseToJson(this);
+  Map<String, dynamic> toJson() => _$RegisterResponseToJson(this);
 }
