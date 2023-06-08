@@ -19,6 +19,11 @@ import '../core/network/dio_factory.dart';
 import '../core/storage/local/app_settings_shared_preferences.dart';
 import '../features/auth/presentation/controller/login_controller.dart';
 import '../features/auth/presentation/controller/register_controller.dart';
+import '../features/home/data/data_source/remote_home_data_source.dart';
+import '../features/home/data/repository_implementation/home_repositpry_implementation.dart';
+import '../features/home/domain/repository/home_repository.dart';
+import '../features/home/domain/usecase/home_usecase.dart';
+import '../features/home/presentation/controller/home_controller.dart';
 import '../features/out_boarding/presentation/controller/out_boarding_controller.dart';
 import '../features/splash/presentation/controller/splash_controller.dart';
 
@@ -161,4 +166,34 @@ disposeRegisterModule() {
 
 initMainModule() {
   Get.put<MainController>(MainController());
+  initHomeModule();
+}
+
+initHomeModule() {
+  if (!GetIt.I.isRegistered<RemoteHomeDataSource>()) {
+    instance.registerLazySingleton<RemoteHomeDataSource>(
+      () => RemoteHomeDataSourceImplement(
+        instance<AppApi>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<HomeRepository>()) {
+    instance.registerLazySingleton<HomeRepository>(
+      () => HomeRepositoryImplementation(
+        instance<RemoteHomeDataSource>(),
+        instance<NetworkInfo>(),
+      ),
+    );
+  }
+
+  if (!GetIt.I.isRegistered<HomeUseCase>()) {
+    instance.registerLazySingleton<HomeUseCase>(
+      () => HomeUseCase(
+        instance<HomeRepository>(),
+      ),
+    );
+  }
+
+  Get.put<HomeController>(HomeController());
 }
