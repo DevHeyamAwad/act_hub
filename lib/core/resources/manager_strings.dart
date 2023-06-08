@@ -38,4 +38,22 @@ class ManagerStrings {
       'I agree to our Terms of service and Privacy policy';
   static const String shouldAgreePolicies = 'Should Agree Terms and Policies';
   static const String error = 'Error';
+  static const String empty = '';
+  static const String categories = 'Categories';
+  static const String seeAll = 'See All';
+  static const String viewAll = 'View All';
+  static const String bookNow = 'Book now';
+  static const String rate = '4,8/5';
+  static const String review = '(102 Review)';
+  static const String hours = '45 Hour';
+  static const String descriptionCourses =
+      'Basic User Interface \nDesign for Beginner';
+  static const String office = 'Office';
+  static const String design = 'DESIGN';
+  static const String meetingRoom = 'Meeting Room';
+  static const String sharedDesk = 'Shared Desk';
+  static const String recordingStudio = 'recording studio';
+  static const String playStation = 'Play Station';
+  static const String board = 'Board';
+  static const String popularCourses = 'Popular Courses';
 }

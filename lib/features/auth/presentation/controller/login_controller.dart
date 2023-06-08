@@ -80,7 +80,7 @@ class LoginController extends GetxController {
           child: dialogButton(
             onPressed: () {
               Get.back();
-              Get.offAllNamed(Routes.homeView);
+              Get.offAllNamed(Routes.mainView);
             },
             message: ManagerStrings.thanks,
           ),
@@ -90,7 +90,7 @@ class LoginController extends GetxController {
           const Duration(
             seconds: Constants.loginTimer,
           ), () {
-        Get.offAllNamed(Routes.homeView);
+        Get.offAllNamed(Routes.mainView);
       });
     });
   }

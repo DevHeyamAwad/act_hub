@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import '../../config/request_constants.dart';
 import '../../features/auth/data/response/login_response.dart';
 import '../../features/auth/data/response/register_response.dart';
+import '../../features/home/data/response/home_response.dart';
 
 part 'app_api.g.dart';
 
@@ -27,4 +28,7 @@ abstract class AppApi {
     @Field(ApiConstants.passwordConfirmation) passwordConfirmation,
     @Field(ApiConstants.phone) phone,
   );
+
+  @GET(RequestConstants.home)
+  Future<HomeResponse> home();
 }

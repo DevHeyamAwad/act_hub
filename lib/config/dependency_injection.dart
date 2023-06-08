@@ -7,6 +7,7 @@ import 'package:act_hub/features/auth/domain/repository/login_repository.dart';
 import 'package:act_hub/features/auth/domain/repository/register_repository.dart';
 import 'package:act_hub/features/auth/domain/use_case/login_use_case.dart';
 import 'package:act_hub/features/auth/domain/use_case/register_use_case.dart';
+import 'package:act_hub/features/main/presentation/controller/main_controller.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -156,4 +157,8 @@ disposeRegisterModule() {
   }
 
   Get.delete<RegisterController>();
+}
+
+initMainModule() {
+  Get.put<MainController>(MainController());
 }

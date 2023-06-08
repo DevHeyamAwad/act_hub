@@ -13,13 +13,13 @@ class CourseResponse {
   @JsonKey(name: 'user_rate')
   double? userRate;
   @JsonKey(name: 'attributes')
-  List<AttributeCourseResponse>? attributes;
+  AttributeCourseResponse? attributeCourseResponse;
 
   CourseResponse({
     this.id,
     this.isRated,
     this.userRate,
-    this.attributes,
+    this.attributeCourseResponse,
   });
 
   factory CourseResponse.fromJson(Map<String, dynamic> json) =>
