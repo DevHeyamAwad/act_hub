@@ -2,7 +2,6 @@ import 'package:act_hub/features/home/presentation/view/widget/custom_banner.dar
 import 'package:act_hub/features/home/presentation/view/widget/custom_category.dart';
 import 'package:act_hub/features/home/presentation/view/widget/custom_text.dart';
 import 'package:act_hub/features/home/presentation/view/widget/home_app_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
