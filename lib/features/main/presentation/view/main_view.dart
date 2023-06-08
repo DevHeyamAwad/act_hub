@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
-import '../../../../../core/resources/manager_sizes.dart';
-import '../../../../../core/widgets/will_pop_scope.dart';
-import '../main_controller.dart';
+import '../../../../core/resources/manager_sizes.dart';
+import '../../../../core/widgets/will_pop_scope.dart';
+import '../controller/main_controller.dart';
 
 class MainView extends StatelessWidget {
   const MainView({Key? key}) : super(key: key);

@@ -13,8 +13,10 @@ import '../../../../core/widgets/dialog_button.dart';
 import '../../domain/use_case/login_use_case.dart';
 
 class LoginController extends GetxController {
-  late TextEditingController email = TextEditingController();
-  late TextEditingController password = TextEditingController();
+  late TextEditingController email =
+      TextEditingController(text: 'user1@acthub.com');
+  late TextEditingController password =
+      TextEditingController(text: 'user1@acthub.com');
   late final LoginUseCase _loginUseCase = instance<LoginUseCase>();
   var formKey = GlobalKey<FormState>();
   final AppSettingsSharedPreferences _appSettingsSharedPreferences =
