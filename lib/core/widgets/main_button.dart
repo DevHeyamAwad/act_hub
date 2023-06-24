@@ -1,7 +1,6 @@
 import 'package:act_hub/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 
-import '../../config/constants.dart';
 import '../resources/manager_sizes.dart';
 
 Widget mainButton({
@@ -12,8 +11,10 @@ Widget mainButton({
   double? minWidth,
   double? height,
   double? elevation,
+  EdgeInsetsGeometry? padding,
 }) {
   return MaterialButton(
+    padding: padding,
     onPressed: onPressed.onNull(),
     shape: shapeBorder ??
         RoundedRectangleBorder(
@@ -24,7 +25,7 @@ Widget mainButton({
     color: color.onNull(),
     minWidth: minWidth.onNull(),
     height: height.onNull(),
-    elevation: elevation ?? Constants.elevationButton,
+    elevation: elevation.onNull(),
     child: child,
   );
 }
