@@ -12,6 +12,8 @@ TextFormField baseTextFormField({
   TextInputType? keyboardType,
   bool? obscureText,
   validator,
+  FocusNode? focusNode,
+  onChange,
 }) {
   return TextFormField(
     style: getRegularTextStyle(
@@ -23,6 +25,8 @@ TextFormField baseTextFormField({
     cursorColor: ManagerColors.primaryColor,
     obscureText: obscureText.onNull(),
     validator: validator,
+    focusNode: focusNode,
+    onChanged: onChange ?? (val) {},
     decoration: InputDecoration(
       filled: true,
       contentPadding: EdgeInsets.symmetric(
