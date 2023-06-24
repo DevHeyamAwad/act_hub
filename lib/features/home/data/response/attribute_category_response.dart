@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'attribute_category_response.g.dart';
 
 @JsonSerializable()
@@ -18,6 +19,7 @@ class AttributeCategoryResponse {
     this.image,
     this.type,
   });
+
   factory AttributeCategoryResponse.fromJson(Map<String, dynamic> json) =>
       _$AttributeCategoryResponseFromJson(json);
 

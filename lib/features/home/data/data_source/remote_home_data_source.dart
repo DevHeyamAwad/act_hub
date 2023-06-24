@@ -1,5 +1,5 @@
-import 'package:act_hub/core/network/app_api.dart';
-import 'package:act_hub/features/home/data/response/home_response.dart';
+import '../../../../core/network/app_api.dart';
+import '../response/home_response.dart';
 
 abstract class RemoteHomeDataSource {
   Future<HomeResponse> homeData();

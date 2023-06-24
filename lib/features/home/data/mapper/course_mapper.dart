@@ -1,7 +1,8 @@
 import 'package:act_hub/core/extensions/extensions.dart';
-import 'package:act_hub/features/home/data/mapper/attribute_course_mapper.dart';
-import 'package:act_hub/features/home/data/response/course_response.dart';
-import 'package:act_hub/features/home/domain/model/course_model.dart';
+import 'package:act_hub/features/auth/data/mapper/resgister_mapper.dart';
+
+import '../../domain/model/course_model.dart';
+import '../response/course_response.dart';
 
 extension CourseMapper on CourseResponse {
   CourseModel toDomain() {

@@ -1,9 +1,8 @@
-import 'package:act_hub/core/base_response/base_response.dart';
-import 'package:act_hub/features/home/data/response/sliders_response.dart';
+import 'package:act_hub_training1/core/base_response/base_response.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 import 'category_response.dart';
 import 'course_response.dart';
+import 'slider_response.dart';
 
 part 'home_response.g.dart';
 

@@ -1,8 +1,8 @@
-import 'package:act_hub/core/resources/manager_sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/resources/manager_colors.dart';
 import '../../../../../core/resources/manager_fonts.dart';
+import '../../../../../core/resources/manager_sizes.dart';
 import '../../../../../core/resources/manager_styles.dart';
 
 class CustomText extends StatelessWidget {

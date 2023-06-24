@@ -1,8 +1,9 @@
+import 'package:act_hub/features/home/data/mapper/slider_mapper.dart';
 import 'package:act_hub/features/home/data/mapper/category_mapper.dart';
 import 'package:act_hub/features/home/data/mapper/course_mapper.dart';
-import 'package:act_hub/features/home/data/mapper/slider_mapper.dart';
-import 'package:act_hub/features/home/data/response/home_response.dart';
-import 'package:act_hub/features/home/domain/model/home_model.dart';
+
+import '../../domain/model/home_model.dart';
+import '../response/home_response.dart';
 
 extension HomeMapper on HomeResponse {
   HomeModel toDomain() {

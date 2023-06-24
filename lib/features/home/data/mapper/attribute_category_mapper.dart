@@ -1,12 +1,13 @@
 import 'package:act_hub/core/extensions/extensions.dart';
-import 'package:act_hub/features/home/data/response/attribute_category_response.dart';
-import 'package:act_hub/features/home/domain/model/attribute_category_model.dart';
+
+import '../../domain/model/attribute_category_model.dart';
+import '../response/attribute_category_response.dart';
 
 extension AttributeCategoryMapper on AttributeCategoryResponse {
   AttributeCategoryModel toDomain() {
     return AttributeCategoryModel(
-      description: description.onNull(),
       title: title.onNull(),
+      description: description.onNull(),
       image: image.onNull(),
       type: type.onNull(),
     );

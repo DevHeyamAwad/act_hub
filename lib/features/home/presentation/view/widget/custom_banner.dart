@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../core/resources/manager_assets.dart';
 import '../../../../../core/resources/manager_colors.dart';
 import '../../../../../core/resources/manager_fonts.dart';
@@ -20,7 +19,7 @@ class CustomBanner extends StatelessWidget {
           carouselController: controller.carouselController,
           options: CarouselOptions(
             enlargeCenterPage: true,
-            scrollPhysics: const BouncingScrollPhysics(),
+            scrollPhysics: BouncingScrollPhysics(),
             viewportFraction: 0.85,
             autoPlay: true,
             height: ManagerHeight.h160,
@@ -39,8 +38,7 @@ class CustomBanner extends StatelessWidget {
                 image: DecorationImage(
                     image: i.attributeModel!.image!.isNotEmpty
                         ? NetworkImage(i.attributeModel!.image!.toString())
-                        : const AssetImage(ManagerAssets.banner)
-                            as ImageProvider,
+                        : const AssetImage(ManagerAssets.banner) as ImageProvider,
                     fit: BoxFit.cover),
               ),
               child: Column(

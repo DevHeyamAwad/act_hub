@@ -1,7 +1,7 @@
-import 'package:act_hub/features/home/domain/model/category_model.dart';
-import 'slider_model.dart';
-import '../../../../core/base_model.dart';
+import '../../../../core/base_model/base_model.dart';
+import 'category_model.dart';
 import 'course_model.dart';
+import 'slider_model.dart';
 
 class HomeModel extends BaseModel {
   List<SliderModel>? sliders;

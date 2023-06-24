@@ -1,18 +1,18 @@
-import 'package:act_hub/features/home/presentation/view/widget/custom_banner.dart';
-import 'package:act_hub/features/home/presentation/view/widget/custom_category.dart';
-import 'package:act_hub/features/home/presentation/view/widget/custom_text.dart';
-import 'package:act_hub/features/home/presentation/view/widget/home_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../core/resources/manager_colors.dart';
 import '../../../../core/resources/manager_sizes.dart';
 import '../../../../core/resources/manager_strings.dart';
 import '../../../../core/widgets/will_pop_scope.dart';
 import '../controller/home_controller.dart';
+import 'widget/custom_banner.dart';
+import 'widget/custom_category.dart';
+import 'widget/custom_course.dart';
+import 'widget/custom_text.dart';
+import 'widget/home_app_bar.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class HomeView extends StatelessWidget {
                     ManagerOpacity.op0_5,
                   ),
                 ),
-                SizedBox(
+                Container(
                   width: double.infinity,
                   height: ManagerHeight.h48,
                   child: ListView.builder(
@@ -56,7 +56,7 @@ class HomeView extends StatelessWidget {
                   nameButton: ManagerStrings.viewAll,
                   buttonColor: ManagerColors.primaryColor,
                 ),
-                SizedBox(
+                Container(
                   height: ManagerHeight.h500, // Replace with the desired height
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -64,10 +64,10 @@ class HomeView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
-                          // CustomCourse(
-                          //   index: index,
-                          //   onTap: () => Get.to(() => CourseDescriptionView(index: index + 1)),
-                          // ),
+                          CustomCourse(
+                            index: index,
+                            // onTap: () => Get.to(() => CourseDescriptionView(index: index + 1)),
+                          ),
                           Divider(
                             indent: ManagerWidth.w14,
                             endIndent: ManagerWidth.w14,

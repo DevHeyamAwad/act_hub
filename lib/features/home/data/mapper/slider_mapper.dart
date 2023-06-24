@@ -1,7 +1,8 @@
 import 'package:act_hub/core/extensions/extensions.dart';
-import 'package:act_hub/features/home/data/response/sliders_response.dart';
-import 'package:act_hub/features/home/domain/model/slider_model.dart';
-import 'package:act_hub/features/home/data/mapper/attribute_slider_mapper.dart';
+import 'package:act_hub/features/auth/data/mapper/resgister_mapper.dart';
+
+import '../../domain/model/slider_model.dart';
+import '../response/slider_response.dart';
 
 extension SliderMapper on SliderResponse {
   SliderModel toDomain() {

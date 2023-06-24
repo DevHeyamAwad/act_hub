@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 import 'attribute_category_response.dart';
 
 part 'category_response.g.dart';

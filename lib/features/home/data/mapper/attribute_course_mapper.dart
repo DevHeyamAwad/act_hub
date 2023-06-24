@@ -1,20 +1,21 @@
 import 'package:act_hub/core/extensions/extensions.dart';
-import 'package:act_hub/features/home/data/response/attribute_course_response.dart';
-import 'package:act_hub/features/home/domain/model/attribute_course_model.dart';
+
+import '../../domain/model/attribute_course_model.dart';
+import '../response/attribute_course_response.dart';
 
 extension AttributeCourseMapper on AttributeCourseResponse {
   AttributeCourseModel toDomain() {
     return AttributeCourseModel(
-      active: active.onNull(),
-      avatar: avatar.onNull(),
+      title: title.onNull(),
       description: description.onNull(),
-      endDate: endDate.onNull(),
+      active: active.onNull(),
+      resourceId: resourceId.onNull(),
       hours: hours.onNull(),
       price: price.onNull(),
       rate: rate.onNull(),
-      resourceId: resourceId.onNull(),
+      avatar: avatar.onNull(),
       startDate: startDate.onNull(),
-      title: title.onNull(),
+      endDate: endDate.onNull(),
     );
   }
 }

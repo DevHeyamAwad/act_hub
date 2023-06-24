@@ -1,8 +1,8 @@
-import 'package:act_hub/core/resources/manager_assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../../../../../core/resources/manager_assets.dart';
 import '../../../../../core/resources/manager_colors.dart';
 import '../../../../../core/resources/manager_fonts.dart';
 import '../../../../../core/resources/manager_sizes.dart';
@@ -93,36 +93,7 @@ class CustomCourse extends StatelessWidget {
                   ),
                 ],
               ),
-              const Spacer(),
-              Container(
-                margin: EdgeInsets.only(
-                  top: ManagerHeight.h10,
-                  right: ManagerWidth.w10,
-                  bottom: ManagerHeight.h10,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      child: SvgPicture.asset(
-                        ManagerAssets.save,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Image.asset(ManagerAssets.star),
-                        Text(
-                          ManagerStrings.rate,
-                          style: getMediumTextStyle(
-                            fontSize: ManagerFontSize.s12,
-                            color: ManagerColors.grey,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
+              Spacer(),
             ],
           ),
         ),

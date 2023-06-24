@@ -4,6 +4,7 @@ class AttributeCategoryModel {
   String? image;
   String? type;
 
+
   AttributeCategoryModel({
     this.title,
     this.description,
