@@ -54,4 +54,8 @@ class AppSettingsSharedPreferences {
   bool loggedIn() {
     return _sharedPreferences.getBool(ConstantsPrefsKeys.loggedIn).onNull();
   }
+
+  void clear() {
+    _sharedPreferences.clear();
+  }
 }
