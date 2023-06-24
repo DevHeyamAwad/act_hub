@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>864232946996-aotlo7sse3b1f9ra9i9ltojk84r2lol3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.864232946996-aotlo7sse3b1f9ra9i9ltojk84r2lol3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA9VZZSIFwxpmCn6ve6En1EK_1zXJBngj0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>864232946996</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.actHub</string>
+	<key>PROJECT_ID</key>
+	<string>acthub-d24cc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>acthub-d24cc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:864232946996:ios:3d78eb95b6b4586b4ab961</string>
+</dict>
+</plist>

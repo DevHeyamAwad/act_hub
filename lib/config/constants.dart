@@ -10,6 +10,15 @@ class Constants {
   static const int loginSecondPartFlex = 3;
   static const double getStateWidgetRenderStateElevation = 3;
   static const int loginTimer = 1;
+  static const double arrowBackButtonElevation = 0;
+  static const int codeVerificationMaxLine = 1;
+  static const double elevation = 0;
+  static const int unauthenticatedSession = 2;
+  static const String notificationChannel = 'act_hub_chanel';
+  static const String notificationChannelName = 'notificationChannelName';
+  static const String notificationChannelDescription =
+      'notificationChannelDescription';
+  static const String notificationIconName = 'launch_background';
 }
 
 class ConstantsPrefsKeys {
@@ -21,22 +30,29 @@ class ConstantsPrefsKeys {
 }
 
 class ApiConstants {
-  static const String baseUrl = 'http://act-hub.actit.ps';
+  static const String baseUrl = 'https://act-hub-training.actit.ps';
   static const String authorization = 'authorization';
   static const int sendTimeOutDuration = 120;
   static const int receiveTimeOutDuration = 120;
   static const String email = 'email';
   static const String password = 'password';
-  static const String token = 'token';
+  static const String passwordConfirmation = 'password_confirmation';
+  static const String phone = 'phone';
   static const String message = 'message';
   static const String errors = 'errors';
   static const String error = 'error';
+  static const String token = 'token';
   static const String badRequest = 'Bad Request';
-  static const String noInternetConnection = 'No Internet Connection';
+  static const String noInternetConnection = 'No Internet connection';
   static const String acceptLanguage = 'Accept-Language';
   static const String english = 'en';
+  static const String arabic = 'ar';
   static const String status = 'status';
   static const String name = 'name';
-  static const String passwordConfirmation = 'password_confirmation';
-  static const String phone = 'phone';
+  static const String verificationEmail = 'email';
+  static const String otp = 'otp';
+  static const String accept = 'Accept';
+  static const String contentType = 'Content-Type';
+  static const String applicationJson = 'application/json';
+  static const String fcmToken = 'fcm_token';
 }

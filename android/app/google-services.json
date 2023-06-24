@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "864232946996",
+    "project_id": "acthub-d24cc",
+    "storage_bucket": "acthub-d24cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864232946996:android:25444fba7cd48ffe4ab961",
+        "android_client_info": {
+          "package_name": "com.example.act_hub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864232946996-qv1p1ear54108633mbp2l9k5p58or5mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHDk-BYZekaSr_KVNNuMpphjd8JpbAN9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864232946996-qv1p1ear54108633mbp2l9k5p58or5mo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "864232946996-aotlo7sse3b1f9ra9i9ltojk84r2lol3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.actHub"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

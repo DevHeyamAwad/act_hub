@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
-
+import '../../routes/routes.dart';
+import '../storage/local/app_settings_shared_preferences.dart';
+import 'package:get/get.dart';
 import '../../config/constants.dart';
+import '../../config/dependency_injection.dart';
 
 class Failure {
   int code;
@@ -14,11 +17,32 @@ class ErrorHandler implements Exception {
 
   ErrorHandler.handle(dynamic error) {
     if (error is DioError) {
-      failure = Failure(
-          error.response!.statusCode ?? ResponseCode.BAD_REQUEST.value,
-          error.response?.data[ApiConstants.message] ??
-              error.response?.data[ApiConstants.errors].toString() ??
-              ApiConstants.error);
+      final response = error.response;
+      final statusCode = response?.statusCode ?? ResponseCode.BAD_REQUEST.value;
+      final data = response?.data;
+
+      if (response?.statusCode == ResponseCode.UNAUTHORIZED.value) {
+        Future.delayed(
+            const Duration(
+              seconds: Constants.unauthenticatedSession,
+            ), () {
+          AppSettingsSharedPreferences appSettingsSharedPreferences =
+              instance<AppSettingsSharedPreferences>();
+          appSettingsSharedPreferences.clear();
+          Get.offAllNamed(Routes.loginView);
+        });
+      }
+
+      if (data != null) {
+        final errorMessage = data[ApiConstants.message] ??
+            data[ApiConstants.error]?[ApiConstants.message] ??
+            data[ApiConstants.errors].values.first.first ??
+            ApiConstants.error;
+
+        failure = Failure(statusCode, errorMessage);
+      } else {
+        failure = Failure(statusCode, ApiConstants.error);
+      }
     } else {
       failure = Failure(
         ResponseCode.BAD_REQUEST.value,
@@ -44,6 +68,7 @@ enum ResponseCode {
   SERVICE_UNAVAILABLE,
   GATEWAY_TIMEOUT,
   NO_INTERNET_CONNECTION,
+  UNKNOWN;
 }
 
 extension ResponseCodeExtension on ResponseCode {
@@ -79,6 +104,8 @@ extension ResponseCodeExtension on ResponseCode {
         return 504;
       case ResponseCode.NO_INTERNET_CONNECTION:
         return -1; // Or any appropriate value for "No Internet Connection"
+      case ResponseCode.UNKNOWN:
+        return -7;
     }
   }
 }
