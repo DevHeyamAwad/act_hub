@@ -1,7 +1,7 @@
 import 'package:act_hub/core/resources/manager_strings.dart';
 import 'package:get/get_utils/src/get_utils/get_utils.dart';
 
-class FailedValidator {
+class FieldValidator {
   String? validateEmail(String? email) {
     if (email!.isEmpty) {
       return ManagerStrings.invalidEmail;
@@ -13,6 +13,18 @@ class FailedValidator {
 
     if (!GetUtils.isEmail(email)) {
       return ManagerStrings.invalidEmail;
+    }
+
+    return null;
+  }
+
+  String? validatePassword(String? password) {
+    if (password!.isEmpty) {
+      return ManagerStrings.invalidPassword;
+    }
+
+    if (password.length < 8) {
+      return ManagerStrings.invalidPassword;
     }
 
     return null;
@@ -38,15 +50,10 @@ class FailedValidator {
     return null;
   }
 
-  String? validatePassword(String? password) {
-    if (password!.isEmpty) {
-      return ManagerStrings.invalidPassword;
+  String? validateCode(value) {
+    if (value == null || value.trim().isEmpty) {
+      return ManagerStrings.invalidEmptyCode;
     }
-
-    if (password.length < 8) {
-      return ManagerStrings.invalidPassword;
-    }
-
     return null;
   }
 }
