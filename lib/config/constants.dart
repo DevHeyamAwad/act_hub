@@ -10,6 +10,15 @@ class Constants {
   static const int loginSecondPartFlex = 3;
   static const double getStateWidgetRenderStateElevation = 3;
   static const int loginTimer = 1;
+  static const int unauthenticatedSession = 2;
+  static const String notificationChannel = 'act_hub_chanel';
+  static const String notificationChannelName = 'notificationChannelName';
+  static const String notificationChannelDescription =
+      'notificationChannelDescription';
+  static const String notificationIconName = 'launch_background';
+  static const double arrowBackButtonElevation = 0;
+  static const int codeVerificationMaxLine = 1;
+  static const double elevation = 0;
 }
 
 class ConstantsPrefsKeys {
